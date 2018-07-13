@@ -2,7 +2,9 @@ package dao;
 
 import entities.Userinfo;
 
+import java.math.BigInteger;
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 public interface IUserDAO {
@@ -15,4 +17,6 @@ public interface IUserDAO {
     void deleteUser(Userinfo userinfo);
 
     void updateUser(Userinfo userinfo);
+
+    Optional<Userinfo> findUserWithPhone(BigInteger phone);
 }

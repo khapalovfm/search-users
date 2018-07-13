@@ -1,6 +1,7 @@
 package dao;
 
 import entities.Organization;
+import lombok.Setter;
 
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -10,8 +11,9 @@ import java.util.Optional;
 
 @Stateless
 public class OrganizationManager implements IOrganizationDAO {
+    @Setter
     @PersistenceContext(name = "NewPersistenceUnit")
-    EntityManager em;
+    public EntityManager em;
 
     public List findAllOrganization() {
         return em.createQuery("select c from Organization c").getResultList();

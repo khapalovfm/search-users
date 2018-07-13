@@ -33,7 +33,7 @@ class App extends Component {
     }
 
     onClick = () => {
-        this.setState({showComponent: false})
+        this.setState({showComponent: false, saveComponent: false})
     }
 
 
@@ -62,7 +62,8 @@ class App extends Component {
                                 </tbody>
                             </table>
                             <Button size='l' onClick={this.onClick}>{'Скрыть'}</Button>
-                            <Button size='l' onClick={() => this.setState({saveComponent: true})}>{'Добавить'}</Button>
+                            <Button size='l' className={'add-button'}
+                                    onClick={() => this.setState({saveComponent: true})}>{'Добавить'}</Button>
                             {
                                 this.state.saveComponent ?
                                     <AddUserComponent/>

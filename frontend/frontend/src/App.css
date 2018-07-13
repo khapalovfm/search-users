@@ -4,6 +4,9 @@
     text-align: center;
     align-items: center;
     flex-direction: column;
+    position: absolute;
+    top: 20%;
+    left: 40%
 }
 
 .App-button {
@@ -13,6 +16,10 @@
 
 .table-app {
     border: #222a32;
+}
+
+.add-button {
+    margin-top: 10px;
 }
 
 @keyframes App-logo-spin {

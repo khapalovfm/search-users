@@ -12,7 +12,10 @@ import java.util.UUID;
 @Entity
 @NoArgsConstructor
 @EqualsAndHashCode
-@NamedQuery(name = "findAllUsers", query = "select c from Userinfo c")
+@NamedQueries({
+        @NamedQuery(name = "findAllUsers", query = "select c from Userinfo c"),
+        @NamedQuery(name = "findAllUsersInOrganization", query = "select p from Userinfo  p where p.organizationByOrganizationId.id = :organizationID")
+})
 @Table(schema = "public", name = "userinfo")
 public class Userinfo {
 
@@ -37,6 +40,7 @@ public class Userinfo {
 
 
     @Setter
+    @Getter
     @ManyToOne(cascade = CascadeType.ALL, targetEntity = Organization.class)
     @JoinColumn(name = "organization_id", referencedColumnName = "id")
     private Organization organizationByOrganizationId;
